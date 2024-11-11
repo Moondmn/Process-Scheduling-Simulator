@@ -1,0 +1,218 @@
+<!-- app/templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Your Page Title{% endblock %}
+
+{% block content %}
+<!-- Your specific page content goes here -->
+<!-- <h1>Welcome to Your Page!</h1> -->
+
+<div class="progress" style="height: 3px; background-color: white;">
+    <div class="indeterminate" style="background-color: red;"></div>
+</div>
+
+<div class=" mt-10 container mx-auto flex lg:flex-row flex-col gap-3">
+    <div class="bg-white border shadow p-5 lg:max-w-sm rounded-xl h-full">
+        <h1 class="font-bold text-3xl mb-5 mt-2">Input</h1>
+        <form class="m-auto" id="myForm" hx-post="/pdata" hx-swap="none" hx-trigger="submit" hx-indicator=".progress">
+
+            <label id="selectedAlgoLabel" for="selectedAlgo" class="block text-md my-2 font-small text-gray-700">Algorithm:</label>
+            <select
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                id="selectedAlgo" name="selectedAlgo" onchange="changeScheduler()">
+                <optgroup label="Non-Preemitive schedulers">
+                    <option value="fcfs">First Come First Serve, FCFS</option>
+                    <option value="spn">Shortest Process Next, SPN</option>
+                    <option value="hrrn">Highest Response Ration Next, HRRN</option>
+                    <option value="sjn">Shortest Job Next, SJN</option>
+                    <option value="pr">Priority</option>
+                </optgroup>
+                <optgroup label="Preemitive schedulers">
+                    <option value="rr">Round Robin</option>
+                    <option value="srtf">Shortest Remaining Time First, SRTF</option>
+                    <!-- <option value="pr_0">Priority</option> -->
+                    <!-- <option value="pr_0">Priority</option> -->
+                </optgroup>
+            </select>
+
+            <br>
+            <div class="">
+                <label for="numRows" class="block text-md my-2 font-small text-gray-700">Number of Processes</label>
+                <input class="h-10 w-full rounded border-gray-400 border px-2 text-black font-meduim" type="number"
+                    id="numRows" name="numRows" min="1" value="1" required>
+                <!-- <button type="button"  onclick="addRows()">Add Rows</button> -->
+            </div>
+            <br>
+
+            <table class="w-full flex-grow table
+                 text-sm overflow-x-auto" id="dataTable">
+                <thead class="ltr:text-left rtl:text-right">
+                    <tr class="text-center">
+                        <td class="py-3    text-left text-xs font-semibold text-gray-700 uppercase  ">#</td>
+                        <th scope="col" class=" py-3    text-left text-xs font-semibold text-gray-700 uppercase  ">AT
+                        </th>
+                        <th scope="col" class="py-3   text-left text-xs font-semibold text-gray-700 uppercase ">CBT</th>
+                        <th scope="col" id="prtable"
+                            class=" py-3    text-left text-xs font-semibold text-gray-700 uppercase "
+                            style="display: none;">Priority</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr id="trinp" class="">
+                        <td scope="row " class="font-bold pr-2">P1</td>
+                        <td class="">
+                            <input
+                                class=" h-10 w-full rounded border-gray-400 border text-center text-black font-meduim"
+                                type="number" name="1-at" min="0" required>
+                        </td>
+                        <td class="">
+                            <input
+                                class=" h-10 w-full rounded border-gray-400 border text-center text-black font-meduim"
+                                type="number" name="1-cbt" min="0" required>
+                        </td>
+                        <td class="" id="prtable" style="display: none;">
+                            <input
+                                class="h-10 lg:w-16 w-full rounded border-gray-400 border text-center text-black	font-meduim"
+                                type="number" name="1-pr" min="0" value="0">
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <br>
+            <div id="qTimeContainer" style="display: none;">
+                <!-- <input type="checkbox" id="vehicle1" name="qTimeCheck" value="1"> -->
+                <label for="qTime" class="block text-md my-2 font-small text-gray-700">Quantom Time</label>
+                <input class="h-10 w-full rounded border-gray-400 border px-2 text-black font-meduim" type="number"
+                    id="qTime" name="qTime" min="1" value="1" required>
+            </div>
+            <div id="contextSwitchContainer">
+                <!-- <input type="checkbox" id="vehicle1" name="qTimeCheck" value="1"> -->
+                <label for="csTime" class="block text-md my-2 font-small text-gray-700">Context Switch Time</label>
+                <input class="h-10 w-full rounded border-gray-400 border px-2 text-black font-meduim" type="number"
+                    id="csTime" name="csTime" min="0" value="0">
+            </div>
+            <div class="flex gap-2 mt-5">
+                <input type="checkbox" id="compare_box" class="
+                       w-4 h-4 border-2 border-blue-500 rounded-sm bg-white
+                      mt-1" name="compare" onchange="compareOpt()"/>
+                <label for="compare" class=" text-md font-small text-gray-800">Compare</label>
+            </div>
+            <p style="display: none;" class="mt-4" id="compareLearn">Running all schedulers may take some time to complete the request. Once the request is finished, a selector will be available, allowing you to change both the table and Gantt chart results by simply adjusting the selection.
+            </p>
+
+            <!-- <label for="cTime">Context Switch</label>
+                <input class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm" type="number" id="cTime" name="cTime" min="0" value="0">
+                <br><br> -->
+
+            <br><br>
+            <button
+                class="text-gray-700 bg-gray-300 hover:bg-gray-400  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+                type="button" onclick="fillUnfilledInputs()">Re/Fill out Blank Cells</button>
+            <input
+                class="text-white bg-blue-600 hover:bg-blue-700  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+                type="submit" value="Submit">
+
+        </form>
+    </div>
+
+
+    <div class="flex-grow bg-white border shadow p-5 rounded-xl h-full min-w-2xl">
+        <div class="flex justify-between items-center	">
+
+            <h1 class="font-bold text-3xl mb-5 mt-2">Output</h1>
+            <select
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+                id="selectedAlgoOut" name="selectedAlgo" onchange="changeSchedulerOut()" style="display: none;">
+                <optgroup label="Non-Preemitive schedulers">
+                    <option value="fcfs">First Come First Serve, FCFS</option>
+                    <option value="spn">Shortest Process Next, SPN</option>
+                    <option value="hrrn">Highest Response Ration Next, HRRN</option>
+                    <option value="sjn">Shortest Job Next, SJN</option>
+                    <!-- <option value="pr">Priority</option> -->
+                </optgroup>
+                <optgroup label="Preemitive schedulers">
+                    <option value="rr">Round Robin</option>
+                    <option value="srtf">Shortest Remaining Time First, SRTF</option>
+                    <!-- <option value="pr_0">Priority</option> -->
+                    <!-- <option value="pr_0">Priority</option> -->
+                </optgroup>
+            </select>
+            <span id="selectedAlgoSpan"
+                class="font-semibold text-sm mb-5 mt-2 bg-green-200 p-2 rounded-md text-gray-800">FCFS</s>
+        </div>
+
+        <h2 id="defaultInfo" class=" text-md mb-5 mt-2">The Gantt chart and table will be displayed in this section.</h2>
+        <div id="basicReceived" style="display: none;">
+            <h2 class=" text-md mb-5 mt-2">Received Data:</h2>
+            <table id="processesTable" class="w-full flex-grow table
+        text-sm overflow-x-auto">
+                <thead>
+                    <!-- Table header will be dynamically added here -->
+                </thead>
+                <tbody class="">
+                    <!-- Table rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-10 compares md:max-w-2xl xl:max-w-3xl" id="comapredata" style="display: none;">
+            <h2 class="font-bold text-2xl mb-2 mt-2">Schedulers Benchmark</h2>
+            <p class="text-wrap">Here, you can observe schedulers ranked from best to worst for given process lists,
+                based on (turnaround, waitin, finish and execution time).</p>
+                <div class="flex items-center max-w-2xl mt-5" id="compare_box mx-auto">
+                    <!-- <p class=" text-md mb-2  min-w-16">TT</p> -->
+                    <div class="flex justify-around  w-full" id="compare_fairness"></div>
+                </div>
+            
+
+            <p class="font-bold text-2xl mb-2 mt-4">More Specific</p>
+            <p class="text-wrap ">Scheduler algorithms sorted by:</p>
+                <div class="mt-4">
+                <span class="pt-5">Execution Time</span>
+                <div class="flex flex-col max-w-3xl mx-auto w-full" id="compare_ex"></div>
+            </div><div class="mt-4">
+                <span class="pt-4">Turnaround Time</span>
+                <div class="flex flex-col max-w-3xl mx-auto w-full" id="compare_tt"></div>
+            </div><div class="mt-4">
+                <span class="pt-4">Waiting Time</span>
+                <div class="flex flex-col max-w-3xl mx-auto w-full" id="compare_wt"></div>
+            </div><div class="mt-4">
+                <span >Finish Time</span>
+                <div class="flex flex-col max-w-3xl mx-auto w-full" id="compare_ft"></div>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="recievedDataP" class="mt-5" style="display: none;">
+            <button
+                class="accordion  text-gray-700 bg-gray-300 hover:bg-gray-400  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Received
+                Data </button>
+            <div class="panel  ">
+                <div id="receivedData" class="max-h-64 overflow-auto"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<div id="ganttChartSection" class=" flex flex-col mt-10 container mx-auto flex bg-white rounded-xl shadow p-6 mb-10"
+    style="display: none;">
+    <div class="flex items-center">
+        <h2 class="font-bold text-2xl mb-4 mt-4 ml-16 mr-3">Gantt Chart For</h2>
+        <span id="selectedAlgoSpanG"
+                class="font-semibold text-sm rounded-md text-gray-800">FCFS</s>
+        </div>
+        <canvas id="ganttChart"></canvas>
+    </div>
+</div>
+<footer class="absolute flex flex-col mb-2 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+    <span class="sticky top-[100vh] font-mono text-sm">Made With 💖 and 💧</span>
+</footer>
+<!-- <script src="{{ url_for('static', filename='index.js') }}"></script> -->
+
+{% endblock %}

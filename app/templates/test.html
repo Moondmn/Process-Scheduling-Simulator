@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-item {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="flex-container" id="flexRow"></div>
+
+<script>
+    const data = [
+    {
+      "fcfs": [
+        0.000013999990187585354,
+        12,
+        7.5,
+        14.5
+      ]
+    },
+    {
+      "hrrn": [
+        0.00003270000161137432,
+        10,
+        5.5,
+        12.5
+      ]
+    },
+    {
+      "spn": [
+        0.000019099999917671084,
+        10,
+        10,
+        12.5
+      ]
+    },
+    {
+      "sjn": [
+        0.000023500004317611456,
+        10,
+        5.5,
+        12.5
+      ]
+    },
+    {
+      "rr": [
+        0.00023970000620465726,
+        10.75,
+        6.25,
+        13.25
+      ]
+    },
+    {
+      "srtf": [
+        0.001342200004728511,
+        8,
+        3.5,
+        10.5
+      ]
+    }
+  ];
+  
+  // Function to create divs and spans based on sorted data
+  function createDivsAndSpans(sortedData, index) {
+    // Create a div element
+    const containerDiv = document.createElement('div');
+  
+    // Append spans to the div based on the sorted data
+    sortedData.forEach(item => {
+      const algorithmName = Object.keys(item)[0];
+      const value = item[algorithmName][index];
+  
+      // Create a span element
+      const spanElement = document.createElement('span');
+      if (index===0){
+      spanElement.textContent = `${algorithmName}: ${value.toExponential(1)}`;
+      }else{
+        spanElement.textContent = `${algorithmName}: ${value}`
+      }
+      // Append the span to the div
+      containerDiv.appendChild(spanElement);
+    });
+  
+    // Append the div to the body
+    document.body.appendChild(containerDiv);
+  }
+  
+  // Sort the array based on the first, second, third, and fourth values
+  const sortedFirst = data.sort((a, b) => (a[Object.keys(a)[0]][0] - b[Object.keys(b)[0]][0]));
+  const sortedSecond = data.sort((a, b) => (a[Object.keys(a)[0]][1] - b[Object.keys(b)[0]][1]).toFixed(1));
+  const sortedThird = data.sort((a, b) => (a[Object.keys(a)[0]][2] - b[Object.keys(b)[0]][2]).toFixed(1));
+  const sortedFourth = data.sort((a, b) => (a[Object.keys(a)[0]][3] - b[Object.keys(b)[0]][3]).toFixed(1));
+  
+  // Create divs and spans for each sorted element
+  createDivsAndSpans(sortedFirst, 0); // First element
+  createDivsAndSpans(sortedSecond, 1); // Second element
+  createDivsAndSpans(sortedThird, 2); // Third element
+  createDivsAndSpans(sortedFourth, 3); // Fourth element
+  
+</script>
+
+</body>
+</html>

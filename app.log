@@ -1,0 +1,97 @@
+2024-01-31 01:13:14,649 - INFO - [{'solved_processes_info': [Process(name=1, arrival_time=0, burst_time=9, priority=0, waiting_time=0, turnaround_time=9, remaining_time=9, finish_time=9), Process(name=2, arrival_time=2, burst_time=5, priority=0, waiting_time=7, turnaround_time=12, remaining_time=5, finish_time=14), Process(name=4, arrival_time=5, burst_time=6, priority=0, waiting_time=9, turnaround_time=15, remaining_time=6, finish_time=20), Process(name=3, arrival_time=8, burst_time=2, priority=0, waiting_time=12, turnaround_time=14, remaining_time=2, finish_time=22)], 'gantt_chart_info': [{'job': 1, 'gantt_seq': [(0, 9)]}, {'job': 2, 'gantt_seq': [(9, 14)]}, {'job': 4, 'gantt_seq': [(14, 20)]}, {'job': 3, 'gantt_seq': [(20, 22)]}]}, {'solved_processes_info': [Process(name=1, arrival_time=0, burst_time=9, priority=0, waiting_time=0, turnaround_time=9, remaining_time=9, finish_time=9), Process(name=2, arrival_time=2, burst_time=5, priority=0, waiting_time=7, turnaround_time=12, remaining_time=5, finish_time=14), Process(name=3, arrival_time=8, burst_time=2, priority=0, waiting_time=6, turnaround_time=8, remaining_time=2, finish_time=16), Process(name=4, arrival_time=5, burst_time=6, priority=0, waiting_time=11, turnaround_time=17, remaining_time=6, finish_time=22)], 'gantt_chart_info': [{'job': 1, 'gantt_seq': [(0, 9)]}, {'job': 2, 'gantt_seq': [(9, 14)]}, {'job': 3, 'gantt_seq': [(14, 16)]}, {'job': 4, 'gantt_seq': [(16, 22)]}]}, {'solved_processes_info': [Process(name=1, arrival_time=0, burst_time=0, priority=0, waiting_time=9, turnaround_time=9, remaining_time=9, finish_time=9), Process(name=3, arrival_time=8, burst_time=0, priority=0, waiting_time=3, turnaround_time=3, remaining_time=2, finish_time=11), Process(name=2, arrival_time=2, burst_time=0, priority=0, waiting_time=14, turnaround_time=14, remaining_time=5, finish_time=16), Process(name=4, arrival_time=5, burst_time=0, priority=0, waiting_time=17, turnaround_time=17, remaining_time=6, finish_time=22)], 'gantt_chart_info': [{'job': 1, 'gantt_seq': [(0, 9)]}, {'job': 3, 'gantt_seq': [(9, 11)]}, {'job': 2, 'gantt_seq': [(11, 16)]}, {'job': 4, 'gantt_seq': [(16, 22)]}]}, {'solved_processes_info': [Process(name=1, arrival_time=0, burst_time=9, priority=0, waiting_time=12, turnaround_time=21, remaining_time=0, finish_time=21), Process(name=2, arrival_time=2, burst_time=5, priority=0, waiting_time=9, turnaround_time=14, remaining_time=0, finish_time=16), Process(name=4, arrival_time=5, burst_time=6, priority=0, waiting_time=11, turnaround_time=17, remaining_time=0, finish_time=22), Process(name=3, arrival_time=8, burst_time=2, priority=0, waiting_time=5, turnaround_time=7, remaining_time=0, finish_time=15)], 'gantt_chart_info': [{'job': 1, 'gantt_seq': [(0, 1), (1, 2), (3, 4), (5, 6), (8, 9), (12, 13), (16, 17), (18, 19), (20, 21)]}, {'job': 2, 'gantt_seq': [(2, 3), (4, 5), (7, 8), (11, 12), (15, 16)]}, {'job': 4, 'gantt_seq': [(6, 7), (9, 10), (13, 14), (17, 18), (19, 20), (21, 22)]}, {'job': 3, 'gantt_seq': [(10, 11), (14, 15)]}]}, {'solved_processes_info': [Process(name=1, arrival_time=0, burst_time=9, priority=0, waiting_time=0, turnaround_time=9, remaining_time=0, finish_time=9), Process(name=3, arrival_time=8, burst_time=2, priority=0, waiting_time=1, turnaround_time=3, remaining_time=0, finish_time=11), Process(name=2, arrival_time=2, burst_time=5, priority=0, waiting_time=9, turnaround_time=14, remaining_time=0, finish_time=16), Process(name=4, arrival_time=5, burst_time=6, priority=0, waiting_time=11, turnaround_time=17, remaining_time=0, finish_time=22)], 'gantt_chart_info': [{'job': 1, 'gantt_seq': [(0, 9)]}, {'job': 3, 'gantt_seq': [(9, 11)]}, {'job': 2, 'gantt_seq': [(11, 16)]}, {'job': 4, 'gantt_seq': [(16, 22)]}]}, {'solved_processes_info': [Process(name=2, arrival_time=2, burst_time=5, priority=0, waiting_time=0, turnaround_time=5, remaining_time=0, finish_time=7), Process(name=3, arrival_time=8, burst_time=2, priority=0, waiting_time=0, turnaround_time=2, remaining_time=0, finish_time=10), Process(name=4, arrival_time=5, burst_time=6, priority=0, waiting_time=4, turnaround_time=10, remaining_time=0, finish_time=15), Process(name=1, arrival_time=0, burst_time=9, priority=0, waiting_time=13, turnaround_time=22, remaining_time=0, finish_time=22)], 'gantt_chart_info': [{'job': 1, 'gantt_seq': [(0, 1), (1, 2), (15, 16), (16, 17), (17, 18), (18, 19), (19, 20), (20, 21), (21, 22)]}, {'job': 2, 'gantt_seq': [(2, 3), (3, 4), (4, 5), (5, 6), (6, 7)]}, {'job': 4, 'gantt_seq': [(7, 8), (10, 11), (11, 12), (12, 13), (13, 14), (14, 15)]}, {'job': 3, 'gantt_seq': [(8, 9), (9, 10)]}]}]
+2024-01-31 01:16:34,599 - INFO - result
+2024-01-31 01:16:34,600 - INFO - result
+2024-01-31 01:16:34,607 - INFO - result
+2024-01-31 01:16:34,615 - INFO - result
+2024-01-31 01:16:34,665 - INFO - result
+2024-01-31 01:16:49,593 - INFO - result
+2024-01-31 01:19:52,980 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:19:52,980 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:19:52,982 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:19:52,983 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:19:52,985 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:19:52,986 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:29,158 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:29,158 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:29,158 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:29,158 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:29,168 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:29,168 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:53,663 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:53,664 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:53,665 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:53,665 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:53,666 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
+2024-01-31 01:20:53,666 - ERROR - Error: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+the current application. To solve this, set up an application context
+with app.app_context(). See the documentation for more information.
