@@ -1,9 +1,4 @@
-## Semi-Final Version Of Process-Scheduler Simulator
-
-#### Team:
-- Yousef Dolatabadi
-- Abolfazl Keshavarz
-- Parsa Sadeghi
+## Semi-Final Version Of Process-Scheduler Simulato
 
 `term 1402-3`
 
